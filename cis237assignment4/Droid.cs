@@ -66,5 +66,17 @@ namespace cis237assignment4
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
         }
+
+
+
+
+
+
+        //Implement IComparable CompareTo to provide default sort order.
+        public int CompareTo(object other)
+        {
+            IDroid droid = (IDroid)other;
+            return Decimal.Compare(this.TotalCost, droid.TotalCost);
+        }
     }
 }

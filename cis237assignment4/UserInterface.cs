@@ -29,9 +29,11 @@ namespace cis237assignment4
         public void DisplayMainMenu()
         {
             Console.WriteLine("What would you like to do?");
-            Console.WriteLine("1. Add a new droid to the system");
+            Console.WriteLine("1. Enqueue a new droid to the system");
             Console.WriteLine("2. Print the list of droids out");
-            Console.WriteLine("3. Exit the program");
+            Console.WriteLine("3. Sort the droids by Model");
+            Console.WriteLine("4. Sort the droids by Total Cost");
+            Console.WriteLine("5. Exit the program");
         }
 
         //Method to get a menu choice
@@ -54,6 +56,34 @@ namespace cis237assignment4
 
             return menuChoice;
         }
+
+
+
+        // >Sort the droid list by catagory.
+        public void SortDroidsByModel()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Sorting...");
+
+            droidCollection.SortByModel();
+
+            Console.WriteLine("-Sorting Complete-");
+            Console.WriteLine();
+        }
+
+        // >Sort the droid list by cost.
+        public void SortDroidsByTotalCost()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Sorting...");
+
+            droidCollection.SortByTotalCost();
+
+            Console.WriteLine("-Sorting Complete-");
+            Console.WriteLine();
+        }
+
+
 
         //Method to do the work of creating a new droid
         public void CreateDroid()
@@ -319,7 +349,7 @@ namespace cis237assignment4
                 case "Janatorial":
                     //Get the rest of the options for a Janatorial droid.
                     bool[] janatorialOptions = this.displayAndGetJanatorialOptions();
-                    //Add it to the collection
+                    //Enqueue it to the collection
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], janatorialOptions[0], janatorialOptions[1]);
                     break;
 
@@ -328,7 +358,7 @@ namespace cis237assignment4
                     //Get the rest of the options for an astromech
                     bool astromechOption = this.displayAndGetAstromechOption();
                     int astromechNumberOfShips = this.displayAndGetAstromechNumberOfShips();
-                    //Add it to the collection
+                    //Enqueue it to the collection
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], astromechOption, astromechNumberOfShips);
                     break;
             }
